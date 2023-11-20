@@ -19,6 +19,7 @@ var getDecimalValue = function (head) {
   return result;
 };
 
+// link: https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
 // 解題思路：
 // 1. 建立一個result來存放結果
 // 2. 用while迴圈去判斷head是否存在，若存在則將result乘以2，並加上head.val

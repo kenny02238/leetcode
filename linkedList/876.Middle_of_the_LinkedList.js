@@ -19,6 +19,7 @@ var middleNode = function (head) {
   return slowPt;
 };
 
+// link: https://leetcode.com/problems/middle-of-the-linked-list/
 // 解題思路：
 // 1. 建立一個fastPt和一個slowPt，fastPt每次走兩步，slowPt每次走一步
 // 2. 當fastPt走到底時，slowPt剛好走到中間

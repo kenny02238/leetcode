@@ -28,6 +28,7 @@ var mergeTwoLists = function (l1, l2) {
   return result.next;
 };
 
+// link: https://leetcode.com/problems/merge-two-sorted-lists/
 // 解題思路：
 // 1. 建立一個新的ListNode(merged)來存放結果
 // 2. 建立一個指標(result)來指向merged的頭部

@@ -25,6 +25,7 @@ var hasCycle = function (head) {
   return false;
 };
 
+// link: https://leetcode.com/problems/linked-list-cycle/
 // 解題思路：
 
 // 利用一個一次前進兩格的指標(fast),以及一個前進一格的指標(slow)去判斷
