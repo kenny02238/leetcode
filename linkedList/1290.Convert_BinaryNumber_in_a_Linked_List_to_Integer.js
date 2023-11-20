@@ -56,3 +56,17 @@ var getDecimalValue = function (head) {
 //     }
 //     return result;
 // };
+// 6. 這題也可以用string的方式去解，但是效率會比較差
+// 例如：
+// var getDecimalValue = function(head) {
+//     let result = 0;
+//     let str = '';
+//     while(head){
+//         str += head.val;
+//         head = head.next;
+//     }
+//     for(let i=0;i<str.length;i++){
+//         result += str[i]*2**(str.length-i-1);
+//     }
+//     return result;
+// };
