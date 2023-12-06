@@ -4,3 +4,6 @@
 // let c = a.slice(0, 1);
 
 // console.log(a, b, c, a);
+
+let a = [];
+console.log(a[0]);
