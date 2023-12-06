@@ -6,4 +6,7 @@
 // console.log(a, b, c, a);
 
 let a = [];
-console.log(a[0]);
+console.log(2 % 2);
+if (!0 % 2) {
+  console.log(123);
+}
