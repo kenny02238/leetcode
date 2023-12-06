@@ -19,5 +19,3 @@ var countNodes = function (root) {
   if (root.left && !root.right) return 2;
   return countNodes(root.left) + countNodes(root.right) + 1;
 };
-
-//
