@@ -6,4 +6,6 @@
 // console.log(a, b, c, a);
 
 let a = [];
-console.log(2 - -Infinity);
+let x = 30;
+let y = 6;
+console.log((x %= y));
