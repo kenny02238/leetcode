@@ -4,8 +4,12 @@
 // let c = a.slice(0, 1);
 
 // console.log(a, b, c, a);
-
-let a = [];
-let x = 30;
-let y = 6;
-console.log((x %= y));
+const b = { a: 1, b: 2 };
+const a = new Map(Object.entries(b));
+const c = new Set([1, 2, 3, 4, 5]);
+for (let item of c) {
+  console.log(item);
+}
+c.forEach((item) => {
+  console.log(item);
+});
