@@ -14,8 +14,12 @@
 //   console.log(item);
 // });
 
-let a,
-  b = 3,
-  c = 3;
+let a = {};
 
-console.log(d);
+let d = Symbol("d");
+let ee = Symbol.for("e");
+let e = Symbol.for("e");
+let dd = Symbol.keyFor(e);
+a[d] = "Hello";
+
+console.log(dd);
