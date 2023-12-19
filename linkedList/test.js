@@ -42,7 +42,6 @@
 //   console.log(char, number);
 // });
 
-let a = "anv bd";
-for (let i = 0; i < a.length; i += 1) {
-  console.log(typeof a[i]);
-}
+let a = "x";
+let b = "ad";
+console.log((a += b));
