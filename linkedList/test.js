@@ -22,22 +22,27 @@
 // let dd = Symbol.keyFor(e);
 // a[d] = "Hello";
 
-const map = {
-  M: 1000,
-  CM: 900,
-  D: 500,
-  CD: 400,
-  C: 100,
-  XC: 90,
-  L: 50,
-  XL: 40,
-  X: 10,
-  IX: 9,
-  V: 5,
-  IV: 4,
-  I: 1,
-};
-let ans = "";
-Object.entries(map).forEach(([char, number]) => {
-  console.log(char, number);
-});
+// const map = {
+//   M: 1000,
+//   CM: 900,
+//   D: 500,
+//   CD: 400,
+//   C: 100,
+//   XC: 90,
+//   L: 50,
+//   XL: 40,
+//   X: 10,
+//   IX: 9,
+//   V: 5,
+//   IV: 4,
+//   I: 1,
+// };
+// let ans = "";
+// Object.entries(map).forEach(([char, number]) => {
+//   console.log(char, number);
+// });
+
+let a = "anv bd";
+for (let i = 0; i < a.length; i += 1) {
+  console.log(typeof a[i]);
+}
