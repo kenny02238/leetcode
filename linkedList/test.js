@@ -14,12 +14,30 @@
 //   console.log(item);
 // });
 
-let a = {};
+// let a = {};
 
-let d = Symbol("d");
-let ee = Symbol.for("e");
-let e = Symbol.for("e");
-let dd = Symbol.keyFor(e);
-a[d] = "Hello";
+// let d = Symbol("d");
+// let ee = Symbol.for("e");
+// let e = Symbol.for("e");
+// let dd = Symbol.keyFor(e);
+// a[d] = "Hello";
 
-console.log(dd);
+const map = {
+  M: 1000,
+  CM: 900,
+  D: 500,
+  CD: 400,
+  C: 100,
+  XC: 90,
+  L: 50,
+  XL: 40,
+  X: 10,
+  IX: 9,
+  V: 5,
+  IV: 4,
+  I: 1,
+};
+let ans = "";
+Object.entries(map).forEach(([char, number]) => {
+  console.log(char, number);
+});
