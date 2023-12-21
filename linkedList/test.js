@@ -42,6 +42,37 @@
 //   console.log(char, number);
 // });
 
-let a = "x";
-let b = "ad";
-console.log((a += b));
+// let a = "x";
+// let b = "ad";
+// console.log((a += b));
+
+var reverseWords = function (s) {
+  let counter = 0,
+    recording = false;
+  ans = "";
+  let tempArr = [];
+  for (let i = s.length - 1; i >= 0; i--) {
+    if (s[i] !== " " && !recording) {
+      tempArr[counter] = [s[i]];
+      recording = true;
+      continue;
+    }
+    if (recording && s[i] === " ") {
+      recording = false;
+      counter += 1;
+      continue;
+    }
+    if (recording) {
+      tempArr[counter].push(s[i]);
+    }
+  }
+  tempArr.map((string) => {
+    while (string.length) {
+      ans += string.pop();
+    }
+    ans += " ";
+  });
+  return ans;
+};
+
+console.log(reverseWords("a good   example"));
