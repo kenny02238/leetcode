@@ -46,33 +46,56 @@
 // let b = "ad";
 // console.log((a += b));
 
-var reverseWords = function (s) {
-  let counter = 0,
-    recording = false;
-  ans = "";
+// var reverseWords = function (s) {
+//   let counter = 0,
+//     recording = false;
+//   ans = "";
+//   let tempArr = [];
+//   for (let i = s.length - 1; i >= 0; i--) {
+//     if (s[i] !== " " && !recording) {
+//       tempArr[counter] = [s[i]];
+//       recording = true;
+//       continue;
+//     }
+//     if (recording && s[i] === " ") {
+//       recording = false;
+//       counter += 1;
+//       continue;
+//     }
+//     if (recording) {
+//       tempArr[counter].push(s[i]);
+//     }
+//   }
+//   tempArr.map((string) => {
+//     while (string.length) {
+//       ans += string.pop();
+//     }
+//     ans += " ";
+//   });
+//   return ans;
+// };
+
+// console.log(reverseWords("a good   example"));
+var convert = function (s, numRows) {
   let tempArr = [];
-  for (let i = s.length - 1; i >= 0; i--) {
-    if (s[i] !== " " && !recording) {
-      tempArr[counter] = [s[i]];
-      recording = true;
-      continue;
-    }
-    if (recording && s[i] === " ") {
-      recording = false;
-      counter += 1;
-      continue;
-    }
-    if (recording) {
-      tempArr[counter].push(s[i]);
+  let count1 = 0,
+    way = "up";
+  for (let i = 0; i < s.length; i++) {
+    if (!tempArr[count1]) tempArr[count1] = [];
+    tempArr[count1].push(s[i]);
+    if (way === "up") {
+      count1 += 1;
+      if (count1 === numRows - 1) {
+        way = "down";
+      }
+    } else {
+      count1 -= 1;
+      if (count1 === 0) {
+        way = "up";
+      }
     }
   }
-  tempArr.map((string) => {
-    while (string.length) {
-      ans += string.pop();
-    }
-    ans += " ";
-  });
-  return ans;
+  console.log(tempArr);
 };
 
-console.log(reverseWords("a good   example"));
+convert("PAYPALISHIRING", 4);
