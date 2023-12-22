@@ -76,26 +76,103 @@
 // };
 
 // console.log(reverseWords("a good   example"));
-var convert = function (s, numRows) {
-  let tempArr = [];
-  let count1 = 0,
-    way = "up";
-  for (let i = 0; i < s.length; i++) {
-    if (!tempArr[count1]) tempArr[count1] = [];
-    tempArr[count1].push(s[i]);
-    if (way === "up") {
-      count1 += 1;
-      if (count1 === numRows - 1) {
-        way = "down";
-      }
-    } else {
-      count1 -= 1;
-      if (count1 === 0) {
-        way = "up";
-      }
-    }
-  }
-  console.log(tempArr);
-};
+// var convert = function (s, numRows) {
+//   let tempArr = [];
+//   let count1 = 0,
+//     way = "up";
+//   for (let i = 0; i < s.length; i++) {
+//     if (!tempArr[count1]) tempArr[count1] = [];
+//     tempArr[count1].push(s[i]);
+//     if (way === "up") {
+//       count1 += 1;
+//       if (count1 === numRows - 1) {
+//         way = "down";
+//       }
+//     } else {
+//       count1 -= 1;
+//       if (count1 === 0) {
+//         way = "up";
+//       }
+//     }
+//   }
+//   console.log(tempArr);
+// };
 
-convert("PAYPALISHIRING", 4);
+// convert("PAYPALISHIRING", 4);
+
+// let tempCount = 0;
+// let a = 1 + 1 + (tempCount > 1 ? tempCount - 1 : 0);
+// console.log(a);
+
+// let a = "123";
+// let b = 123;
+// console.log(typeof (a * 1), a);
+
+// var fullJustify = function (words, maxWidth) {
+//   let ans = [];
+//   let temp = "";
+//   let tempLng = 0;
+//   let tempCount = 0;
+//   let i = 0,
+//     pt = 0;
+
+//   while (i <= words.length) {
+//     if (
+//       i !== words.length &&
+//       words[i].length + tempLng + (tempCount > 1 ? tempCount - 1 : 0) <=
+//         maxWidth
+//     ) {
+//       if (tempCount == 0) pt = i;
+//       tempLng += words[i].length;
+//       tempCount += 1;
+//       i++;
+//     } else {
+//       let space =
+//         i === words.length
+//           ? 1
+//           : Math.floor(
+//               (maxWidth - tempLng) / (tempCount > 1 ? tempCount - 1 : tempCount)
+//             );
+//       let extraSpace =
+//         i === words.length
+//           ? 0
+//           : (maxWidth - tempLng) % (tempCount > 1 ? tempCount - 1 : tempCount);
+//       for (let j = pt; j < pt + tempCount; j++) {
+//         if (j < pt + (tempCount > 1 ? tempCount - 1 : tempCount)) {
+//           if (i === words.length) {
+//             if (j == pt + tempCount - 1) {
+//               temp += words[j] + " ".repeat(maxWidth - tempLng - tempCount - 1);
+//             } else {
+//               temp += words[j] + " ";
+//             }
+//           } else {
+//             temp += words[j] + " ".repeat(space + (extraSpace && 1));
+//           }
+//         } else {
+//           if (i === words.length) {
+//             temp += words[j] + " ".repeat(maxWidth - tempLng - tempCount - 1);
+//           } else {
+//             temp += words[j];
+//           }
+//         }
+//         extraSpace = extraSpace > 0 ? extraSpace - 1 : 0;
+//       }
+//       ans.push(temp);
+//       tempLng = 0;
+//       tempCount = 0;
+//       temp = "";
+//       if (i === words.length) break;
+//     }
+//   }
+//   return ans;
+// };
+// let a = fullJustify(
+//   ["This", "is", "an", "example", "of", "text", "justification."],
+//   16
+// );
+// console.log(a);
+
+// let test = 1;
+// let a = "gaga";
+// a += "test" + "2".repeat(4 + (test && 1));
+// console.log(a);
