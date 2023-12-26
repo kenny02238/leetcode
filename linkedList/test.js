@@ -248,6 +248,47 @@
 // ]);
 
 // console.log(letterMap.has("a"));
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {string}
+ */
+var minWindow = function (s, t) {
+  let map = new Map();
+  let pt1 = 0,
+    pt2 = 0;
+  let tCount = t.length;
+  let ans = "";
 
-let a = ".,";
-console.log(a.toLocaleLowerCase());
+  for (let char of t) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
+  while (pt2 < s.length) {
+    if (map.has(s[pt2])) {
+      if (map.get(s[pt2]) > 0) {
+        tCount -= 1;
+      }
+      map.set(s[pt2], map.get(s[pt2]) - 1);
+    }
+
+    while (tCount === 0 && pt1 <= pt2) {
+      let tempString = s.slice(pt1, pt2 + 1);
+      if (!ans || tempString.length < ans.length) {
+        ans = tempString;
+      }
+      if (map.has(s[pt1])) {
+        map.set(s[pt1], map.get(s[pt1]) + 1);
+        if (map.get(s[pt1]) > 0) {
+          tCount += 1;
+        }
+      }
+      pt1++;
+    }
+
+    pt2++;
+  }
+
+  return ans;
+};
+
+minWindow("ADOBECODEBANC", "ABC");
