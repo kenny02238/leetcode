@@ -287,33 +287,50 @@
 // };
 
 // minWindow("ADOBECODEBANC", "ABC");
+// var isValidSudoku = function (board) {
+//   let cols = new Array(9).fill(0).map(() => new Array(9).fill(0));
+//   let rows = new Array(9).fill(0).map(() => new Array(9).fill(0));
+//   let boxs = new Array(3)
+//     .fill(0)
+//     .map(() => new Array(3).fill(0).map(() => new Array(9).fill(0)));
+//   for (let i = 0; i < 9; i++) {
+//     for (let j = 0; j < 9; j++) {
+//       let ceil = board[i][j];
+//       if (ceil !== ".") {
+//         let numsIndex = ceil.charCodeAt() - "0".charCodeAt() - 1;
+//         rows[i][numsIndex]++;
+//         cols[j][numsIndex]++;
+//         boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex]++;
+//         if (
+//           rows[i][numsIndex] > 1 ||
+//           cols[j][numsIndex] > 1 ||
+//           boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex] > 1
+//         )
+//           return false;
+//       }
+//     }
+//   }
+//   return true;
+// };
 
-/**
- * @param {character[][]} board
- * @return {boolean}
- */
-var isValidSudoku = function (board) {
-  let cols = new Array(9).fill(0).map(() => new Array(9).fill(0));
-  let rows = new Array(9).fill(0).map(() => new Array(9).fill(0));
-  let boxs = new Array(3)
-    .fill(0)
-    .map(() => new Array(3).fill(0).map(() => new Array(9).fill(0)));
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      let ceil = board[i][j];
-      if (ceil !== ".") {
-        let numsIndex = ceil.charCodeAt() - "0".charCodeAt() - 1;
-        rows[i][numsIndex]++;
-        cols[j][numsIndex]++;
-        boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex]++;
-        if (
-          rows[i][numsIndex] > 1 ||
-          cols[j][numsIndex] > 1 ||
-          boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex] > 1
-        )
-          return false;
-      }
+var rotate = function (matrix) {
+  let n = matrix.length;
+
+  for (let i = 0; i < Math.floor(n / 2); i++) {
+    for (let j = i; j < n - i - 1; j++) {
+      let temp = matrix[i][j];
+      matrix[i][j] = matrix[n - j - 1][i];
+      matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+      matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+      matrix[j][n - i - 1] = temp;
     }
   }
-  return true;
+  console.log(matrix);
 };
+
+rotate([
+  [5, 1, 9, 11],
+  [2, 4, 8, 10],
+  [13, 3, 6, 7],
+  [15, 14, 12, 16],
+]);
