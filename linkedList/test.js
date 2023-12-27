@@ -248,47 +248,72 @@
 // ]);
 
 // console.log(letterMap.has("a"));
+// var minWindow = function (s, t) {
+//   let map = new Map();
+//   let pt1 = 0,
+//     pt2 = 0;
+//   let tCount = t.length;
+//   let ans = "";
+
+//   for (let char of t) {
+//     map.set(char, (map.get(char) || 0) + 1);
+//   }
+//   while (pt2 < s.length) {
+//     if (map.has(s[pt2])) {
+//       if (map.get(s[pt2]) > 0) {
+//         tCount -= 1;
+//       }
+//       map.set(s[pt2], map.get(s[pt2]) - 1);
+//     }
+
+//     while (tCount === 0 && pt1 <= pt2) {
+//       let tempString = s.slice(pt1, pt2 + 1);
+//       if (!ans || tempString.length < ans.length) {
+//         ans = tempString;
+//       }
+//       if (map.has(s[pt1])) {
+//         map.set(s[pt1], map.get(s[pt1]) + 1);
+//         if (map.get(s[pt1]) > 0) {
+//           tCount += 1;
+//         }
+//       }
+//       pt1++;
+//     }
+
+//     pt2++;
+//   }
+
+//   return ans;
+// };
+
+// minWindow("ADOBECODEBANC", "ABC");
+
 /**
- * @param {string} s
- * @param {string} t
- * @return {string}
+ * @param {character[][]} board
+ * @return {boolean}
  */
-var minWindow = function (s, t) {
-  let map = new Map();
-  let pt1 = 0,
-    pt2 = 0;
-  let tCount = t.length;
-  let ans = "";
-
-  for (let char of t) {
-    map.set(char, (map.get(char) || 0) + 1);
-  }
-  while (pt2 < s.length) {
-    if (map.has(s[pt2])) {
-      if (map.get(s[pt2]) > 0) {
-        tCount -= 1;
+var isValidSudoku = function (board) {
+  let cols = new Array(9).fill(0).map(() => new Array(9).fill(0));
+  let rows = new Array(9).fill(0).map(() => new Array(9).fill(0));
+  let boxs = new Array(3)
+    .fill(0)
+    .map(() => new Array(3).fill(0).map(() => new Array(9).fill(0)));
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      let ceil = board[i][j];
+      if (ceil !== ".") {
+        let numsIndex = ceil.charCodeAt() - "0".charCodeAt() - 1;
+        rows[i][numsIndex]++;
+        cols[j][numsIndex]++;
+        boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex]++;
+        if (
+          rows[i][numsIndex] > 1 ||
+          cols[j][numsIndex] > 1 ||
+          boxs[Math.floor(i / 3)][Math.floor(j / 3)][numsIndex] > 1
+        )
+          return false;
       }
-      map.set(s[pt2], map.get(s[pt2]) - 1);
     }
-
-    while (tCount === 0 && pt1 <= pt2) {
-      let tempString = s.slice(pt1, pt2 + 1);
-      if (!ans || tempString.length < ans.length) {
-        ans = tempString;
-      }
-      if (map.has(s[pt1])) {
-        map.set(s[pt1], map.get(s[pt1]) + 1);
-        if (map.get(s[pt1]) > 0) {
-          tCount += 1;
-        }
-      }
-      pt1++;
-    }
-
-    pt2++;
   }
-
-  return ans;
+  return true;
 };
-
-minWindow("ADOBECODEBANC", "ABC");
