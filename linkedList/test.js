@@ -384,20 +384,11 @@
 //   [0, 0, 0],
 // ]);
 
-var groupAnagrams = function (strs) {
-  let ans = new Map();
-  for (let s of strs) {
-    let temp = new Array(26).fill(0);
-    for (let c of s) {
-      temp[c.charCodeAt() - "a".charCodeAt()]++;
-    }
-    let tempString = JSON.stringify(temp);
-    ans.has(tempString)
-      ? ans.get(tempString).push(s)
-      : ans.set(tempString, [s]);
+var twoSum = function (nums, target) {
+  const numsMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    let targetNumber = target - nums[i];
+    if (numsMap.has(targetNumber)) return numsMap.get(targetNumber);
+    else return true;
   }
-
-  return Array.from(ans.values());
 };
-
-groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
