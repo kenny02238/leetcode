@@ -313,24 +313,73 @@
 //   return true;
 // };
 
-var rotate = function (matrix) {
-  let n = matrix.length;
+// var rotate = function (matrix) {
+//   let n = matrix.length;
 
-  for (let i = 0; i < Math.floor(n / 2); i++) {
-    for (let j = i; j < n - i - 1; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[n - j - 1][i];
-      matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-      matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
-      matrix[j][n - i - 1] = temp;
+//   for (let i = 0; i < Math.floor(n / 2); i++) {
+//     for (let j = i; j < n - i - 1; j++) {
+//       let temp = matrix[i][j];
+//       matrix[i][j] = matrix[n - j - 1][i];
+//       matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+//       matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+//       matrix[j][n - i - 1] = temp;
+//     }
+//   }
+//   console.log(matrix);
+// };
+
+// rotate([
+//   [5, 1, 9, 11],
+//   [2, 4, 8, 10],
+//   [13, 3, 6, 7],
+//   [15, 14, 12, 16],
+// ]);
+
+/**
+ * @param {number[][]} board
+ * @return {void} Do not return anything, modify board in-place instead.
+ */
+
+//  Rule 1: If the number of living cells among the eight adjacent positions of a living cell is less than two, the living cell dies. In this case, the cell value is changed to -1, indicating that the cell was alive but is now dead.
+
+// Rule 2: If there are two or three living cells among the eight adjacent positions of a living cell, the living cell continues to survive. In this case, the cell value remains 1.
+
+// Rule 3: If there are more than three living cells among the eight adjacent positions of a living cell, the living cell dies. In this case, the cell value is changed to -1, indicating that the cell was alive but is now dead. It can be observed that the initial and final states of the cell are consistent under Rules 1 and 3, so their composite states are also consistent.
+
+// Rule 4: If there are exactly three living cells among the eight adjacent positions of a dead cell, the dead cell comes back to life. In this case, the cell value is changed to 2, indicating that the cell was dead but is now alive.
+const xdx = [0, 1, 0, -1, -1, -1, 1, 1];
+const ydx = [1, 0, -1, 0, 1, -1, 1, -1];
+
+var gameOfLife = function (board) {
+  let rowsL = board[0].length;
+  let colsL = board.length;
+  for (let i = 0; i < rowsL; i++) {
+    for (let j = 0; j < colsL; j++) {
+      let count = countLiveCeils(j, i, board);
+      if (board[j][i] == 1 && count < 2) board[j][i] = -1;
+      if (board[j][i] == 0 && count == 3) board[j][i] = 2;
     }
   }
-  console.log(matrix);
 };
 
-rotate([
-  [5, 1, 9, 11],
-  [2, 4, 8, 10],
-  [13, 3, 6, 7],
-  [15, 14, 12, 16],
+let countLiveCeils = function (x, y, board) {
+  let liveCount = 0;
+  for (let i = 0; i < 8; i++) {
+    if (x + xdx[i] < 0 || y + ydx[i] < 0) {
+      continue;
+    } else if (
+      board[x + xdx[i]][y + ydx[i]] == 1 ||
+      board[x + xdx[i]][y + ydx[i]] == -1
+    ) {
+      liveCount++;
+    }
+  }
+  return liveCount;
+};
+
+gameOfLife([
+  [0, 1, 0],
+  [0, 0, 1],
+  [1, 1, 1],
+  [0, 0, 0],
 ]);
