@@ -403,5 +403,6 @@
 //   }, 0);
 // console.log(b);
 
-let a = new Map();
-console.log(!a.get(1));
+let a = Infinity;
+
+console.log(1 < a);
