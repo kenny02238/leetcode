@@ -32,3 +32,24 @@ var canConstruct = function (ransomNote, magazine) {
 // 2. 用ransomNote中的字母去map中查詢，如果有出現過，則將次數減一
 // 3. 如果map中沒有出現過，則回傳false
 // 4. 如果map中有出現過，但是次數為0，則回傳false
+
+// solution 2
+var canConstruct = function (ransomNote, magazine) {
+  const charCount = new Map();
+
+  // 遍歷 magazine 字符，計算每個字符的出現次數
+  for (const char of magazine) {
+    charCount.set(char, (charCount.get(char) || 0) + 1);
+  }
+
+  // 檢查 ransomNote 是否能夠由 magazine 字符構建而成
+  for (const char of ransomNote) {
+    if (charCount.has(char) && charCount.get(char) > 0) {
+      charCount.set(char, charCount.get(char) - 1);
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+};
