@@ -347,39 +347,57 @@
 // Rule 3: If there are more than three living cells among the eight adjacent positions of a living cell, the living cell dies. In this case, the cell value is changed to -1, indicating that the cell was alive but is now dead. It can be observed that the initial and final states of the cell are consistent under Rules 1 and 3, so their composite states are also consistent.
 
 // Rule 4: If there are exactly three living cells among the eight adjacent positions of a dead cell, the dead cell comes back to life. In this case, the cell value is changed to 2, indicating that the cell was dead but is now alive.
-const xdx = [0, 1, 0, -1, -1, -1, 1, 1];
-const ydx = [1, 0, -1, 0, 1, -1, 1, -1];
+// const xdx = [0, 1, 0, -1, -1, -1, 1, 1];
+// const ydx = [1, 0, -1, 0, 1, -1, 1, -1];
 
-var gameOfLife = function (board) {
-  let rowsL = board[0].length;
-  let colsL = board.length;
-  for (let i = 0; i < rowsL; i++) {
-    for (let j = 0; j < colsL; j++) {
-      let count = countLiveCeils(j, i, board);
-      if (board[j][i] == 1 && count < 2) board[j][i] = -1;
-      if (board[j][i] == 0 && count == 3) board[j][i] = 2;
+// var gameOfLife = function (board) {
+//   let rowsL = board[0].length;
+//   let colsL = board.length;
+//   for (let i = 0; i < rowsL; i++) {
+//     for (let j = 0; j < colsL; j++) {
+//       let count = countLiveCeils(j, i, board);
+//       if (board[j][i] == 1 && count < 2) board[j][i] = -1;
+//       if (board[j][i] == 0 && count == 3) board[j][i] = 2;
+//     }
+//   }
+// };
+
+// let countLiveCeils = function (x, y, board) {
+//   let liveCount = 0;
+//   for (let i = 0; i < 8; i++) {
+//     if (x + xdx[i] < 0 || y + ydx[i] < 0) {
+//       continue;
+//     } else if (
+//       board[x + xdx[i]][y + ydx[i]] == 1 ||
+//       board[x + xdx[i]][y + ydx[i]] == -1
+//     ) {
+//       liveCount++;
+//     }
+//   }
+//   return liveCount;
+// };
+
+// gameOfLife([
+//   [0, 1, 0],
+//   [0, 0, 1],
+//   [1, 1, 1],
+//   [0, 0, 0],
+// ]);
+
+var groupAnagrams = function (strs) {
+  let ans = new Map();
+  for (let s of strs) {
+    let temp = new Array(26).fill(0);
+    for (let c of s) {
+      temp[c.charCodeAt() - "a".charCodeAt()]++;
     }
+    let tempString = JSON.stringify(temp);
+    ans.has(tempString)
+      ? ans.get(tempString).push(s)
+      : ans.set(tempString, [s]);
   }
+
+  return Array.from(ans.values());
 };
 
-let countLiveCeils = function (x, y, board) {
-  let liveCount = 0;
-  for (let i = 0; i < 8; i++) {
-    if (x + xdx[i] < 0 || y + ydx[i] < 0) {
-      continue;
-    } else if (
-      board[x + xdx[i]][y + ydx[i]] == 1 ||
-      board[x + xdx[i]][y + ydx[i]] == -1
-    ) {
-      liveCount++;
-    }
-  }
-  return liveCount;
-};
-
-gameOfLife([
-  [0, 1, 0],
-  [0, 0, 1],
-  [1, 1, 1],
-  [0, 0, 0],
-]);
+groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
