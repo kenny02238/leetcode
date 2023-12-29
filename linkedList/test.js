@@ -384,11 +384,24 @@
 //   [0, 0, 0],
 // ]);
 
-var twoSum = function (nums, target) {
-  const numsMap = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    let targetNumber = target - nums[i];
-    if (numsMap.has(targetNumber)) return numsMap.get(targetNumber);
-    else return true;
-  }
-};
+// var twoSum = function (nums, target) {
+//   const numsMap = new Map();
+//   for (let i = 0; i < nums.length; i++) {
+//     let targetNumber = target - nums[i];
+//     if (numsMap.has(targetNumber)) return numsMap.get(targetNumber);
+//     else return true;
+//   }
+// };
+
+// let a = "112345";
+// let b = a
+//   .toString()
+//   .split("")
+//   .reduce((acc, value) => {
+//     acc = acc + parseInt(value);
+//     return acc;
+//   }, 0);
+// console.log(b);
+
+let a = new Map();
+console.log(!a.get(1));
