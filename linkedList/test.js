@@ -403,6 +403,13 @@
 //   }, 0);
 // console.log(b);
 
-let a = Infinity;
+// let a = Infinity;
 
-console.log(1 < a);
+// console.log(1 < a);
+
+[
+  [10, 16],
+  [2, 8],
+  [1, 6],
+  [7, 12],
+];
