@@ -407,9 +407,23 @@
 
 // console.log(1 < a);
 
-[
-  [10, 16],
-  [2, 8],
-  [1, 6],
-  [7, 12],
-];
+// [
+//   [10, 16],
+//   [2, 8],
+//   [1, 6],
+//   [7, 12],
+// ];
+
+// let a = [1, 2, 3];
+// if (a.pop()) {
+//   console.log(1);
+// }
+// console.log(a);
+
+let a = "/a/./b/../../c/";
+let b = "abababab";
+let c = a.split("/");
+let d = b.split("a");
+
+let e = d.join("");
+console.log(d, e.length);
