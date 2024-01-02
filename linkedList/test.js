@@ -428,6 +428,6 @@
 // let e = d.join("");
 // console.log(d, e.length);
 
-let a = [1, 2, 3];
-let b = a.pop();
-console.log(b);
+// let a = [1, 2, 3];
+// let b = a.pop();
+// console.log(b);
