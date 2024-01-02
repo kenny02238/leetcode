@@ -420,10 +420,14 @@
 // }
 // console.log(a);
 
-let a = "/a/./b/../../c/";
-let b = "abababab";
-let c = a.split("/");
-let d = b.split("a");
+// let a = "/a/./b/../../c/";
+// let b = "abababab";
+// let c = a.split("/");
+// let d = b.split("a");
 
-let e = d.join("");
-console.log(d, e.length);
+// let e = d.join("");
+// console.log(d, e.length);
+
+let a = [1, 2, 3];
+let b = a.pop();
+console.log(b);
