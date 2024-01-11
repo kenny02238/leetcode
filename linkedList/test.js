@@ -467,13 +467,16 @@
 
 // calculate("(1+(4+5+2)-3)+(6+8)");
 
-let AACC = function (value) {
-  this.value = value;
-};
+// let AACC = function (value) {
+//   this.value = value;
+// };
 
-AACC.prototype.getValue = function () {
-  return this.value;
-};
+// AACC.prototype.getValue = function () {
+//   return this.value;
+// };
 
-let n = new AACC(1);
-console.log(n);
+// let n = new AACC(1);
+// console.log(n);
+
+let a = -Infinity;
+console.log(a < 0);
