@@ -478,5 +478,31 @@
 // let n = new AACC(1);
 // console.log(n);
 
-let a = -Infinity;
-console.log(a < 0);
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} k
+ * @return {number}
+ */
+var kthSmallest = function (root, k) {
+  let temp = [],
+    count = 0;
+  const dfs = function (node) {
+    if (!node || count === k) return;
+    dfs(node.left);
+    temp.push(node.val);
+    count++;
+    dfs(node.right);
+  };
+  dfs(root);
+  return temp[temp.length - 1];
+};
+
+kthSmallest([3, 1, 4, null, 2], 1);
