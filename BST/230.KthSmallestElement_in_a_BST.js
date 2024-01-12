@@ -30,14 +30,12 @@ var kthSmallest = function (root, k) {
 // 直接返回第 k - 1 個數字即可
 
 var kthSmallest = function (root, k) {
-  let temp = [],
-    count = 0;
+  let temp = [];
   const dfs = function (node) {
     if (!node || temp.length === k) return;
     dfs(node.left);
     if (temp.length === k) return;
     temp.push(node.val);
-    count++;
     if (temp.length === k) return;
     dfs(node.right);
   };
